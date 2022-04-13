@@ -7,37 +7,51 @@
     <title>Document</title>
     
     <style>
+        body{
+            display: flex;
+            justify-content: center;
+
+        }
+        #game-table{
+            background-color: rgb(106, 106, 112);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 300px;
+            margin-top: 100px;
+
+            
+        }
         .header{
+            block-size: 50px;
             color: blueviolet;
             text-align: center;
-            
+            background-color: red;
+
 
         }
         .card{
-            
-            background-color: rgba(105, 102, 104, 0.897);
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_M_1Hn0WZF0bJcQJikCfgJ-nyw1d6OcyjSQ&usqp=CAU); 
             margin:10px;
             border: 1px black solid;
-            width: 100px;
-            height: 50px;
+            width: 50px;
+            height: 100px;
             border-radius:10px;
-            display: inline-block;
+            display: inline-block ;
             font-family: fantasy;
             line-height: 50px;
-            margin-left: 50px;
             text-align: center;
-            
             
             
         }
         .card:hover{
-            background-color: rgb(147, 34, 182);
+            background: cornflowerblue;
             cursor: pointer;
         }
   
 
     </style>
-    <h1 id="header" class="header">~~~~Welcome to my memory game!~~~~</h1>
+    <!-- <h1 id="header" class="header">~~~~Welcome to my memory game!~~~~</h1> -->
 </head>
 <body>
     <div id ="game-table">    </div>
