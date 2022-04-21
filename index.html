@@ -12,16 +12,6 @@
             justify-content: center;
 
         }
-        #game-table{
-            background-color: rgb(106, 106, 112);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 300px;
-            margin-top: 100px;
-
-            
-        }
         .header{
             block-size: 50px;
             color: blueviolet;
@@ -30,30 +20,65 @@
 
 
         }
+        #game-table{
+            background-color: rgb(145, 149, 153);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 500px;
+            margin-top: 100px;
+
+            
+        }
+     
         .card{
             background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_M_1Hn0WZF0bJcQJikCfgJ-nyw1d6OcyjSQ&usqp=CAU); 
             margin:10px;
+            text-align: center;
             border: 1px black solid;
             width: 50px;
             height: 100px;
             border-radius:10px;
             display: inline-block ;
             font-family: fantasy;
-            line-height: 50px;
-            text-align: center;
+            font-size: xx-large;
+            line-height: 100px;
+            content-visibility: hidden;
             
-            
+              
         }
         .card:hover{
-            background: cornflowerblue;
+            background: green;
             cursor: pointer;
         }
+
+        .show{
+            content-visibility: visible;
+        }
+
+        .hidden{
+            animation-delay: 20s;
+            content-visibility: hidden;
+            
+        }
+        .moves{
+            background-color: rgb(50, 173, 116);
+            text-align: center;
+            width: 70px;
+            height: 30px;
+            font-family: fantasy;
+            border-radius:10px;
+            margin-top: 30px;
+        }        
+            
+           
   
 
     </style>
     <!-- <h1 id="header" class="header">~~~~Welcome to my memory game!~~~~</h1> -->
 </head>
 <body>
+    <div class="moves">0 moves</div>
     <div id ="game-table">    </div>
 
     <script src="index.js"></script>

@@ -17,7 +17,21 @@ let cardDouble= cards.concat(cards)
 
 // }
 // console.log(shuffle(cardDouble))
-
+const selectors = {
+    // boardContainer: document.querySelector('.board-container'),
+    // board: document.querySelector('.board'),
+    moves: document.querySelector('.moves'),
+    // timer: document.querySelector('.timer'),
+    // start: document.querySelector('button'),
+    // win: document.querySelector('.win')
+}
+const state = {
+    // gameStarted: false,
+    // flippedCards: 0,
+    counter: 0,
+    // totalTime: 0,
+    // loop: null
+}
 function shuffle(array) {
     let currentIndex = array.length;
     while (currentIndex !== 0) {
@@ -35,14 +49,81 @@ function shuffle(array) {
 
 // אנחנו רוצים להגריל מספר רנדומלי עד 20
 //פעמיים
+let flipCards=[]
+let flipCard = (event)=>{
+    
+    // event.target.innerText="hello"
+    console.log(event.target)
+    event.target.classList.add("show")
+    if (flipCards.length<2){
+        flipCards.push(event.target)
+    }
+    if (flipCards.length==2){
+        // debugger
+        if(flipCards[0].innerText==flipCards[1].innerText){
+            // alert("match")
+            flipCards=[]
+        }
+        if(flipCards[0].innerText!=flipCards[1].innerText){
+                setTimeout(() => {
+                    flipCards[0].classList.remove('show');
+                    flipCards[1].classList.remove('show');
+                    flipCards=[]
+                }, 1000);
+                
+              }
+            // // alert("not match")
+            // flipCards[0].classList.add("hidden")
+            // flipCards[1].classList.remove("show")
+            state.counter+=1
+        selectors.moves.innerText = `${state.counter} moves` 
+        }
+       
+
+    }
+    
+
+;
 
 for (i of cardDouble){
 let board=document.getElementById("game-table");
 let elem =document.createElement("div");
 elem.innerText=i;
 elem.className="card";
+board.appendChild(elem)
+elem.onclick=flipCard
 
-console.log(board.appendChild(elem))
+function isEqual(card1,card2){
+
+}
+
+
+// console.log(board.appendChild(elem))
 }
 
 // elem.className="card"
+// this.cards.forEach((card) => {
+//     Vue.set(card,'isFlipped',false);
+//     Vue.set(card,'isMatched',false);
+// });
+
+// flippedCards = [] 
+
+//  function flipCard2(card){
+//     card.isFlipped = true;
+
+//     if(this.flippedCards.length < 2)
+//         this.flippedCards.push(card);
+//     if(this.flippedCards.length === 2)    
+//         this._match(card);
+// }
+
+// function _match(card){
+
+//     if(this.flippedCards[0].name === this.flippedCards[1].name)
+//         this.flippedCards.forEach(card => card.isMatched = true);
+//     else
+//         this.flippedCards.forEach(card => card.isFlipped = false);
+    
+//     this.flippedCards = [];
+// }
