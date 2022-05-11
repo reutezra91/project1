@@ -102,14 +102,16 @@ playersList[counter].id.classList.add('turn')
 
 let flipCard = (event)=>{
         console.log(event.target)
-    event.target.classList.add("show")
-    if (flipCards.length<2){
-        flipCards.push(event.target)
+    if (!event.target.classList.contains("show")){
+        event.target.classList.add("show")
+        if (flipCards.length<2){
+            flipCards.push(event.target)
+        }
     }
+    
+    
     if (flipCards.length==2){
-        // debugger
         playersList[counter].moves+=1
-        // debugger
         if(flipCards[0].innerText==flipCards[1].innerText){
             flipCards=[]
             match+=1
@@ -120,6 +122,7 @@ let flipCard = (event)=>{
             playersList[counter].id.innerText=`player ${ playersList[counter].playerName} 
             score: ${ playersList[counter].score}`
             if (match==cards.length){
+                
                 
             }
 
@@ -132,7 +135,6 @@ let flipCard = (event)=>{
                     flipCards[1].classList.remove('show');
                     flipCards=[]
                     if(counter== playersList.length-1){
-                        // debugger
                         playersList[counter].id.classList.remove('turn')
                         counter=0
                         playersList[counter].id.classList.add('turn')
