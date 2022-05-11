@@ -7,82 +7,137 @@
     <title>Document</title>
     
     <style>
-        body{
-            display: flex;
-            justify-content: center;
+        body {
+  padding: 1rem;
+  min-height: 200vh;
+  border: 1rem solid;
+  background: #f7e9f3;
+  border-color: rgb(75, 15, 60);
+  text-align: center;
+  color: #140b0b;
+}
+        h1 { 
+  margin: 0;
+  font-weight: 400;
+  font-family: "Ribeye Marrow", sans-serif;
+}
+p {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  margin: 0 0 1.5rem;
+}
+    
 
-        }
-        .header{
-            block-size: 50px;
-            color: blueviolet;
-            text-align: center;
-            background-color: red;
+        @font-face {
+    font-family: Fredoka;
+    src: url(./FredokaOne-Regular.ttf);
+}
 
 
-        }
         #game-table{
-            background-color: rgb(145, 149, 153);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 500px;
+         
+            display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+            margin-right: 400px;
             margin-top: 100px;
+            float: right;
+
 
             
         }
      
         .card{
-            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_M_1Hn0WZF0bJcQJikCfgJ-nyw1d6OcyjSQ&usqp=CAU); 
+        background:rgb(75, 15, 60); ;
+            /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_M_1Hn0WZF0bJcQJikCfgJ-nyw1d6OcyjSQ&usqp=CAU);  */
             margin:10px;
             text-align: center;
-            border: 1px black solid;
-            width: 50px;
+            border: 3px black solid;
+            width: 100px;
             height: 100px;
-            border-radius:10px;
-            display: inline-block ;
-            font-family: fantasy;
+            border-radius: 10px;
+            /* display: inline-block ; */
+            font-family: Fredoka;
             font-size: xx-large;
             line-height: 100px;
             content-visibility: hidden;
-            
               
         }
         .card:hover{
-            background: green;
+            background: rgb(226, 150, 236);
             cursor: pointer;
+            
         }
 
         .show{
             content-visibility: visible;
+            background-color: rgb(250, 253, 255);
+            background-image: none;
         }
 
         .hidden{
             animation-delay: 20s;
             content-visibility: hidden;
             
-        }
-        .moves{
-            background-color: rgb(50, 173, 116);
-            text-align: center;
-            width: 70px;
-            height: 30px;
-            font-family: fantasy;
-            border-radius:10px;
-            margin-top: 30px;
-        }        
             
+        }
+       
+        
+        .score{
+            
+            text-align: center;
+            background: #ffffec;
+    width: 173px;
+    direction: rtl;
+    font:16px Tahoma, Arial, Helvetica, Sans-serif;
+    color: #140b0b;
+    margin: 8px 5px 0;
+    padding-left: 10px;
+    padding-right: 5px;
+    
+    border-radius: 3px;
+    border: 3px solid #020202;
+}
+  
+       
+
+        .turn{
+            background-color: rgb(226, 150, 236);  
+            text-align: center;
+    width: 173px;
+    direction: rtl;
+    font:16px Tahoma, Arial, Helvetica, Sans-serif;
+    margin: 8px 5px 0;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 103px;
+            border: 3px black solid;   
+        }
+        .glow{
+            background-color: aquamarine;
+            ;
+        }
+
+          
+
            
   
 
     </style>
-    <!-- <h1 id="header" class="header">~~~~Welcome to my memory game!~~~~</h1> -->
+    
 </head>
 <body>
-    <div class="moves">0 moves</div>
+    <h1> Memory Game</h1>
+    <p>Click cards and find matching emojis</p>
     <div id ="game-table">    </div>
-
+  
+    
+    <div id ="list">    </div>
+    
     <script src="index.js"></script>
-
+    <audio id="audio" src="http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"></audio>
+    <audio id="audio2" src="http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"></audio>
     
 </body>
 </html>
