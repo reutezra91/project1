@@ -1,0 +1,50 @@
+[33mcommit e220b05c38711a71c40ab8aff227e5da903fece1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: reut ezra <reut.ezra91@gmail.com>
+Date:   Wed May 11 17:48:41 2022 +0300
+
+    fix
+    
+    fix the option to click the same card
+
+[1mdiff --git a/index.js b/index.js[m
+[1mindex 2433a97..837c6d0 100644[m
+[1m--- a/index.js[m
+[1m+++ b/index.js[m
+[36m@@ -102,14 +102,16 @@[m [mplayersList[counter].id.classList.add('turn')[m
+ [m
+ let flipCard = (event)=>{[m
+         console.log(event.target)[m
+[31m-    event.target.classList.add("show")[m
+[31m-    if (flipCards.length<2){[m
+[31m-        flipCards.push(event.target)[m
+[32m+[m[32m    if (!event.target.classList.contains("show")){[m
+[32m+[m[32m        event.target.classList.add("show")[m
+[32m+[m[32m        if (flipCards.length<2){[m
+[32m+[m[32m            flipCards.push(event.target)[m
+[32m+[m[32m        }[m
+     }[m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+     if (flipCards.length==2){[m
+[31m-        // debugger[m
+         playersList[counter].moves+=1[m
+[31m-        // debugger[m
+         if(flipCards[0].innerText==flipCards[1].innerText){[m
+             flipCards=[][m
+             match+=1[m
+[36m@@ -121,6 +123,7 @@[m [mlet flipCard = (event)=>{[m
+             score: ${ playersList[counter].score}`[m
+             if (match==cards.length){[m
+                 [m
+[32m+[m[41m                [m
+             }[m
+ [m
+         }[m
+[36m@@ -132,7 +135,6 @@[m [mlet flipCard = (event)=>{[m
+                     flipCards[1].classList.remove('show');[m
+                     flipCards=[][m
+                     if(counter== playersList.length-1){[m
+[31m-                        // debugger[m
+                         playersList[counter].id.classList.remove('turn')[m
+                         counter=0[m
+                         playersList[counter].id.classList.add('turn')[m
