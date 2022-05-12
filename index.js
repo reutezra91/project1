@@ -6,27 +6,26 @@ let playerNum = Number (prompt('Welcome to my memory game! \n how many players?'
 let cardDouble=[]
 let level = Number(prompt("what level you choose?(1-3)\n 1.easy(8 cards)\n 2.medium (12 cards) \n 3. hard (16 cards)"))
 // debugger switchCase
-if (level==1){
+switch (level){
+    case 1:
 let cards1= cards.slice(0,4)
  cardDouble= cards1.concat(cards1)
+ break;
+    case 2 :
+ let cards2= cards.slice(0,6)
+    cardDouble= cards2.concat(cards2)
+    break;
 
-}
-else if (level==2){
-    let cards2= cards.slice(0,6)
-cardDouble= cards2.concat(cards2)
-
-}
-else if (level==3){
+case 3:
      cardDouble= cards.concat(cards)
+    //  debugger
+     break;
 
-}
-else{
+default:
     prompt ("sorry, this is not an option")
     
 }
 
-
-    
 
 function shuffle(array) {
     let currentIndex = array.length;
@@ -40,7 +39,7 @@ function shuffle(array) {
     return array;
     };
     
-
+shuffle(cardDouble)
 
 let playersList=[]
 
@@ -102,6 +101,7 @@ playersList[counter].id.classList.add('turn')
 
 let flipCard = (event)=>{
         console.log(event.target)
+        
     if (!event.target.classList.contains("show")){
         event.target.classList.add("show")
         if (flipCards.length<2){
@@ -114,16 +114,16 @@ let flipCard = (event)=>{
         playersList[counter].moves+=1
         if(flipCards[0].innerText==flipCards[1].innerText){
             flipCards=[]
-            match+=1
+            match+=2
             playersList[counter].score+=1
             glow(playersList[counter])
             let myAudio = document.querySelector('#audio')
             myAudio.play()
             playersList[counter].id.innerText=`player ${ playersList[counter].playerName} 
             score: ${ playersList[counter].score}`
-            if (match==cards.length){
-                
-                
+
+            if (match==cardDouble.length){
+                compareScore(playersList)
             }
 
         }
@@ -186,4 +186,27 @@ for (i of cardDouble){
     elem.onclick=flipCard
     
     
+    }
+
+    let base =0
+    let winner =[]
+    function compareScore(arr){         
+        
+        for( i=0;i<arr.length;i++){
+            if (arr[i].score>base){                            
+                base=arr[i].score   
+            }
+
+        }
+        for (i=0;i<arr.length;i++){
+            if(arr[i].score==base){
+                winner.push(arr[i].playerName)
+            }
+            
+        }
+        
+        // let myAudio3 = document.querySelector('#audio3')
+        //      myAudio3.play()
+            alert("🏆🏆🏆 The winner is:  "+ winner + "  with:  " +base + "  points 🏆🏆🏆" )
+
     }
